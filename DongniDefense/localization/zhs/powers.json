@@ -1,0 +1,5 @@
+{
+  "DONGNIDEFENSE-DONGNI_DEFENSE_POWER.title": "东尼防御",
+  "DONGNIDEFENSE-DONGNI_DEFENSE_POWER.description": "在你的回合开始时，获得[blue]15[/blue]点[gold]格挡[/gold]。你无法从卡牌中获得[gold]格挡[/gold]。",
+  "DONGNIDEFENSE-DONGNI_DEFENSE_POWER.smartDescription": "在你的回合开始时，获得[blue]{Amount}[/blue]点[gold]格挡[/gold]。你无法从卡牌中获得[gold]格挡[/gold]。"
+}

@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <!-- Copy this file to "Directory.Build.props" and point GodotPath at your installation.
+             MegaDot (https://megadot.megacrit.com/) or the matching Godot 4.5.1 .NET build both work.
+             This file is git-ignored because the path is machine specific. -->
+        <GodotPath>C:/megadot/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+
+        <!-- Only needed when Slay the Spire 2 is not found automatically (unusual Steam library setup). -->
+        <!-- <Sts2Path>D:/steam/steamapps/common/Slay the Spire 2</Sts2Path> -->
+    </PropertyGroup>
+</Project>

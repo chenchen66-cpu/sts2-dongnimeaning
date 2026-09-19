@@ -1,0 +1,8 @@
+{
+  "DONGNIDEFENSE-DONGNI_DEFENSE.title": "Dongni Defense",
+  "DONGNIDEFENSE-DONGNI_DEFENSE.description": "At the start of your turn, gain {DongniDefensePower:diff()} [gold]Block[/gold].\nYou can no longer gain [gold]Block[/gold] from cards.",
+  "DONGNIDEFENSE-DONGNI_STRIKE.title": "Dongni Strike",
+  "DONGNIDEFENSE-DONGNI_STRIKE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each card in your deck.",
+  "DONGNIDEFENSE-DONGNI_CURSE.title": "Dongni's Curse",
+  "DONGNIDEFENSE-DONGNI_CURSE.description": "While this card is in your [gold]Hand[/gold], your card draw and [gold]Energy[/gold] gain effects take effect next turn instead."
+}

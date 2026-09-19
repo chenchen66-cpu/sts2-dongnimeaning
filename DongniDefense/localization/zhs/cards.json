@@ -1,0 +1,8 @@
+{
+  "DONGNIDEFENSE-DONGNI_DEFENSE.title": "东尼防御",
+  "DONGNIDEFENSE-DONGNI_DEFENSE.description": "在你的回合开始时，获得{DongniDefensePower:diff()}点[gold]格挡[/gold]。\n你无法从卡牌中获得[gold]格挡[/gold]。",
+  "DONGNIDEFENSE-DONGNI_STRIKE.title": "东尼打击",
+  "DONGNIDEFENSE-DONGNI_STRIKE.description": "造成{CalculatedDamage:diff()}点伤害。\n你的牌组中每有一张牌，伤害增加{ExtraDamage:diff()}。",
+  "DONGNIDEFENSE-DONGNI_CURSE.title": "东尼的诅咒",
+  "DONGNIDEFENSE-DONGNI_CURSE.description": "当这张牌在你的[gold]手牌[/gold]中时，你抽牌和获得[gold]能量[/gold]的效果改为下回合生效。"
+}

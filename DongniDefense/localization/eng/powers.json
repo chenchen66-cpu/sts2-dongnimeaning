@@ -1,0 +1,5 @@
+{
+  "DONGNIDEFENSE-DONGNI_DEFENSE_POWER.title": "Dongni Defense",
+  "DONGNIDEFENSE-DONGNI_DEFENSE_POWER.description": "At the start of your turn, gain [blue]15[/blue] [gold]Block[/gold]. You can no longer gain [gold]Block[/gold] from cards.",
+  "DONGNIDEFENSE-DONGNI_DEFENSE_POWER.smartDescription": "At the start of your turn, gain [blue]{Amount}[/blue] [gold]Block[/gold]. You can no longer gain [gold]Block[/gold] from cards."
+}

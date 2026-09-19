@@ -1,0 +1,2 @@
+# Godot: skip this folder. It only holds source images used by the tools/ scripts,
+# so they should not be imported or packed into the mod's .pck.

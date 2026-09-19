@@ -1,0 +1,13 @@
+{
+  "DONGNIDEFENSE-DONGNI_MEANING.title": "东尼意思",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.description": "一位自称安东尼·乔瓦内蒂的人找到了你，他听说你最近在玩小卡组，准备警告你不准再玩小卡组，否则找人弄你。\n你该怎么办？",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.options.ACCEPT.title": "接受提议",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.options.ACCEPT.description": "获得【东尼打击】【东尼防御】，然后为一张卡牌附魔【克隆】，获得遗物【宾邦】。",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.options.REFUSE.title": "拒绝",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.options.REFUSE.description": "失去16点生命，删除3张牌。",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.options.PUNCH.title": "一拳下去",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.INITIAL.options.PUNCH.description": "获得【东尼的诅咒】。",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.ACCEPT.description": "东尼意思。",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.REFUSE.description": "你不顾安东尼，执意要删辣个，然后被安东尼找人弄了。",
+  "DONGNIDEFENSE-DONGNI_MEANING.pages.PUNCH.description": "你一拳打死了安东尼，但是总感觉它的阴魂不散..."
+}
