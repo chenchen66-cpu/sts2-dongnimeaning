@@ -2,6 +2,11 @@
 bin/
 obj/
 dist/
+workshop/content/
+workshop/previews/
+workshop/image.png
+workshop/mod_id.txt
+mod-uploader.log
 /android/
 /android/
 .git/

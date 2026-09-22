@@ -1,0 +1,11 @@
+{
+  "title": "东尼意思 Dongni Meaning",
+  "description": "[h1]东尼意思 Dongni Meaning[/h1]\n为《杀戮尖塔 2》添加了“符合安东尼”的事件，以及配套的卡牌与遗物。\n\n[h2]事件：东尼意思[/h2]\n在 1-3 层的问号房间随机出现。一位自称安东尼·乔瓦内蒂的人找到了你，他听说你最近在玩小卡组，准备警告你不准再玩小卡组，否则找人弄你。\n[list]\n[*]① 接受提议：获得【东尼打击】【东尼防御】，为一张卡牌附魔【克隆】，获得遗物【宾邦】。\n[*]② 拒绝：失去 16 点生命，删除 3 张牌。\n[*]③ 一拳下去：获得【东尼圣遗物】和【东尼的诅咒】。\n[/list]\n[h2]卡牌[/h2]\n[list]\n[*]【东尼防御】0 费无色蓝能力：回合开始时获得 15 点格挡，你不能再从卡牌中获得格挡。敲后固有。\n[*]【东尼打击】1 费无色蓝攻击：造成 6 点伤害，你的牌组中每有一张牌，伤害 +1。\n[*]【东尼的诅咒】诅咒（不能被打出、永恒）：当此牌在你手牌中时，你的所有抽牌/获得能量效果改为下回合生效。\n[/list]\n[h2]遗物[/h2]\n[list]\n[*]【东尼圣遗物】每回合结束时，若你的格挡不超过 15，则在下回合获得 2 点能量并抽 2 张牌。\n[/list]\n[h2]依赖[/h2]\n需要 [b]BaseLib[/b]（必需）。\n\n[h2]English[/h2]\nAdds the \"Dongni Meaning\" event (random unknown rooms in acts 1-3) plus the cards Dongni Defense, Dongni Strike and Dongni's Curse, and the relic Dongni's Sacred Relic.\nRequires [b]BaseLib[/b].\n\n[hr][/hr]\n注意：本 mod 完全由 codeX 制作，100% 纯 AI 无人工。\nThis mod was made entirely by AI (Codex) — no human labor.",
+  "visibility": "private",
+  "changeNote": "v1.2.0 首次发布：事件「东尼意思」、卡牌【东尼防御】【东尼打击】【东尼的诅咒】、遗物【东尼圣遗物】。",
+  "tags": [],
+  "dependencies": [
+    3737335127
+  ],
+  "contentDescriptors": []
+}
