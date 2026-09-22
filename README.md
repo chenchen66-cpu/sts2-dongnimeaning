@@ -15,6 +15,8 @@ A Slay the Spire 2 content mod that adds the **Dongni Meaning** event (random un
 |---|---|---|
 | ![东尼防御](DongniDefense/images/card_portraits/big/dongni_defense.png) | ![东尼打击](DongniDefense/images/card_portraits/big/dongni_strike.png) | ![东尼的诅咒](DongniDefense/images/card_portraits/big/dongni_curse.png) |
 
+遗物：![东尼圣遗物](DongniDefense/images/relics/big/dongni_sacred_relic.png)
+
 ## 事件：东尼意思 / The event
 
 在 1-3 层的问号房间随机出现。一位自称安东尼·乔瓦内蒂的人找到了你，他听说你最近在玩小卡组，
@@ -24,10 +26,13 @@ A Slay the Spire 2 content mod that adds the **Dongni Meaning** event (random un
 |---|---|---|
 | ① 接受提议 | 获得【东尼打击】【东尼防御】，为一张卡牌附魔【克隆】，获得遗物【宾邦】 | 东尼意思。 |
 | ② 拒绝 | 失去 16 点生命，删除 3 张牌 | 你不顾安东尼，执意要删辣个，然后被安东尼找人弄了。 |
-| ③ 一拳下去 | 获得【东尼的诅咒】 | 你一拳打死了安东尼，但是总感觉它的阴魂不散... |
+| ③ 一拳下去 | 获得【东尼圣遗物】和【东尼的诅咒】 | 你一拳打死了安东尼，但是总感觉它的阴魂不散... |
 
 【克隆】是本体已有的附魔（该牌可在休息处被复制），【宾邦】即本体遗物 **Bing Bong**
 （每当你将一张牌加入牌组，额外加入一张同样的牌）——与原版文本「宾梆」指的是同一个东西，所以本 mod 直接发放本体遗物。
+
+> 火堆「克隆」修复：本体只在拥有 **PaelsGrowth**（远古遗物）时才在火堆提供克隆选项，光有【克隆】附魔是找不到地方的。
+> 本 mod 打了补丁：只要你的局外牌组里存在带【克隆】附魔的牌，火堆就会出现与本体相同的克隆选项（按本体逻辑复制所有带克隆附魔的牌）。
 
 ## 卡牌 / The cards
 
@@ -37,8 +42,21 @@ A Slay the Spire 2 content mod that adds the **Dongni Meaning** event (random un
 | 稀有度 | 罕见 / 蓝 | 罕见 / 蓝 | 诅咒 |
 | 类型 | 能力 | 攻击 | 诅咒 |
 | 费用 | 0 | 1 | 不能被打出 |
-| 效果 | 在你的回合开始时获得 15 点格挡。你无法从卡牌中获得格挡。 | 造成 6 点伤害。你的牌组中每有一张牌，伤害增加 1 点。 | 当这张牌在你的手牌中时，你抽牌和获得能量的效果改为下回合生效。 |
+| 效果 | 在你的回合开始时获得 15 点格挡。你无法从卡牌中获得格挡。 | 造成 6 点伤害。你的牌组中每有一张牌，伤害增加 1 点。 | 不能被打出、**永恒**。当这张牌在你的手牌中时，你抽牌和获得能量的效果改为下回合生效。 |
 | 升级 | 获得 **固有** | 基础伤害 6 → 8 | 不可升级 |
+
+## 遗物：东尼圣遗物 / The relic
+
+| | |
+|---|---|
+| 名称 | 东尼圣遗物 (Dongni's Sacred Relic) |
+| 稀有度 | 事件 (Event) |
+| 效果 | 每回合结束时，若你的格挡不超过 15，则在下回合获得 2 点能量并抽 2 张牌。 |
+| 来源 | 「东尼意思」事件选项 ③ |
+
+判定发生在你的回合结束时（此时格挡还是回合结束时的数值，下一回合开始才会被清除），
+奖励用的是本体自带的「下回合获得能量」(`EnergyNextTurnPower`) 与「下回合抽牌」(`DrawCardsNextTurnPower`) 状态，
+所以能力栏会显示这两个图标，结算交给游戏本体。
 
 实现细节与本体保持一致：
 
@@ -105,18 +123,40 @@ DongniDefenseCode/
 ├── MainFile.cs                          模组入口（Harmony 初始化 + 构建自检日志）
 ├── Cards/DongniDefense.cs               东尼防御
 ├── Cards/DongniStrike.cs                东尼打击
-├── Cards/DongniCurse.cs                 东尼的诅咒（含延迟抽牌/能量的玩家状态）
+├── Cards/DongniCurse.cs                 东尼的诅咒（拦截抽牌/能量并转为下回合状态）
 ├── Cards/DongniDefenseCardBase.cs       卡牌基类（卡图路径）
 ├── Events/DongniMeaning.cs              东尼意思事件
 ├── Patches/DongniCurseDrawPatch.cs      记录被诅咒拦截的抽牌数量
+├── Patches/CloneRestSitePatch.cs        让带【克隆】附魔的牌能在火堆被复制
 ├── Powers/DongniDefensePower.cs         能力：回合开始给格挡 + 禁止卡牌来源的格挡
-└── Powers/DongniDefensePowerBase.cs     能力基类（图标路径）
+├── Powers/DongniDefensePowerBase.cs     能力基类（图标路径）
+├── Relics/DongniSacredRelic.cs          东尼圣遗物
+└── Relics/DongniDefenseRelicBase.cs     遗物基类（图标路径）
 DongniDefense/
-├── images/                              卡图、能力图标、事件插画
-└── localization/{eng,zhs}/              卡牌 / 能力 / 事件文案
+├── images/                              卡图、能力图标、遗物图标、事件插画
+└── localization/{eng,zhs}/              卡牌 / 能力 / 遗物 / 事件文案
 ```
 
 游戏内 id：`DONGNIDEFENSE-DONGNI_DEFENSE`、`DONGNIDEFENSE-DONGNI_STRIKE`、`DONGNIDEFENSE-DONGNI_CURSE`（卡牌），
-`DONGNIDEFENSE-DONGNI_DEFENSE_POWER`（能力）、`DONGNIDEFENSE-DONGNI_MEANING`（事件）。
+`DONGNIDEFENSE-DONGNI_DEFENSE_POWER`（能力）、`DONGNIDEFENSE-DONGNI_MEANING`（事件）、
+`DONGNIDEFENSE-DONGNI_SACRED_RELIC`（遗物）。
 
 模组内部 id 仍是 `DongniDefense`（显示名已改为「东尼意思」）；如需连 id 一起改名可以再调整。
+
+## 更新日志 / Changelog
+
+### v1.2.0
+
+- 新增遗物【东尼圣遗物】：每回合结束时若格挡 ≤ 15，下回合 +2 能量并抽 2 张牌；由事件选项 ③ 与【东尼的诅咒】一起发放。
+- 【东尼的诅咒】新增关键词 **永恒**（无法从牌组中移除或变化）。
+- 修复：选择事件选项 ① 给卡牌附魔【克隆】后，火堆没有克隆选项可用（本体只因 PaelsGrowth 提供该选项）。
+
+### v1.1.0
+
+- 新增事件「东尼意思」（1-3 层问号房间）与卡牌【东尼打击】【东尼的诅咒】。
+- 【东尼的诅咒】改为直接发放本体的「下回合抽牌 / 下回合能量」状态。
+- 【东尼打击】改为按局外牌组数量加伤。
+
+### v1.0.0
+
+- 新增卡牌【东尼防御】。

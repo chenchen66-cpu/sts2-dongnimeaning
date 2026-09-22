@@ -1,5 +1,6 @@
 using BaseLib.Abstracts;
 using DongniDefense.DongniDefenseCode.Cards;
+using DongniDefense.DongniDefenseCode.Relics;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -42,7 +43,8 @@ public sealed class DongniMeaning : CustomEventModel
             .Concat(HoverTipFactory.FromEnchantment<Clone>())
             .Concat(HoverTipFactory.FromRelic<BingBong>())),
         Option(Refuse),
-        Option(Punch, HoverTipFactory.FromCardWithCardHoverTips<DongniCurse>())
+        Option(Punch, HoverTipFactory.FromCardWithCardHoverTips<DongniCurse>()
+            .Concat(HoverTipFactory.FromRelic<DongniSacredRelic>()))
     ];
 
     /// <summary>① 接受提议：拿两张牌、给一张牌附魔克隆、再拿遗物宾梆。</summary>
@@ -99,10 +101,14 @@ public sealed class DongniMeaning : CustomEventModel
         SetEventFinished(PageDescription("REFUSE"));
     }
 
-    /// <summary>③ 一拳下去：获得【东尼的诅咒】。</summary>
+    /// <summary>③ 一拳下去：获得【东尼圣遗物】和【东尼的诅咒】。</summary>
     public async Task Punch()
     {
-        await CardPileCmd.AddCurseToDeck<DongniCurse>(Owner!);
+        Player player = Owner!;
+
+        await CardPileCmd.AddCurseToDeck<DongniCurse>(player);
+        await RelicCmd.Obtain<DongniSacredRelic>(player);
+
         SetEventFinished(PageDescription("PUNCH"));
     }
 
@@ -126,7 +132,7 @@ public sealed class DongniMeaning : CustomEventModel
                 "一位自称安东尼·乔瓦内蒂的人找到了你，他听说你最近在玩小卡组，准备警告你不准再玩小卡组，否则找人弄你。\n你该怎么办？",
                 new EventOptionLoc("ACCEPT", "接受提议", "获得【东尼打击】【东尼防御】，然后为一张卡牌附魔【克隆】，获得遗物【宾梆】。"),
                 new EventOptionLoc("REFUSE", "拒绝", "失去16点生命，删除3张牌。"),
-                new EventOptionLoc("PUNCH", "一拳下去", "获得【东尼的诅咒】。")),
+                new EventOptionLoc("PUNCH", "一拳下去", "获得【东尼圣遗物】和【东尼的诅咒】。")),
             new EventPageLoc("ACCEPT", "东尼意思。"),
             new EventPageLoc("REFUSE", "你不顾安东尼，执意要删辣个，然后被安东尼找人弄了。"),
             new EventPageLoc("PUNCH", "你一拳打死了安东尼，但是总感觉它的阴魂不散...")),
@@ -137,7 +143,7 @@ public sealed class DongniMeaning : CustomEventModel
                 "A man calling himself Anthony Giovannetti has found you. He heard you have been playing small decks, and he is here to warn you: stop playing small decks, or he will send someone after you.\nWhat do you do?",
                 new EventOptionLoc("ACCEPT", "Accept the proposal", "Gain 【Dongni Strike】【Dongni Defense】, enchant a card with 【Clone】, and gain the relic 【BinBang】."),
                 new EventOptionLoc("REFUSE", "Refuse", "Lose 16 HP. Remove 3 cards."),
-                new EventOptionLoc("PUNCH", "Throw a punch", "Gain 【Dongni's Curse】.")),
+                new EventOptionLoc("PUNCH", "Throw a punch", "Gain 【Dongni's Sacred Relic】 and 【Dongni's Curse】.")),
             new EventPageLoc("ACCEPT", "Dongni meaning."),
             new EventPageLoc("REFUSE", "You ignored Anthony and went ahead with the deletion. So Anthony sent someone after you."),
             new EventPageLoc("PUNCH", "You killed Anthony with a single punch, but somehow his ghost lingers..."))

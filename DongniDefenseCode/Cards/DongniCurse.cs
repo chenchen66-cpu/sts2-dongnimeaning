@@ -29,7 +29,7 @@ public sealed class DongniCurse : DongniDefenseCardBase
 
     public override int MaxUpgradeLevel => 0;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Eternal];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
