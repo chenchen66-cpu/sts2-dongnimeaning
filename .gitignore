@@ -7,6 +7,8 @@ workshop/previews/
 workshop/image.png
 workshop/mod_id.txt
 mod-uploader.log
+_local/
+.vscode/
 /android/
 /android/
 .git/
